@@ -8,15 +8,17 @@ export class App extends Component {
     currentPage: "courses",
   };
 
-
+  onClick = e => {
+    this.setState({currentPage: e.target.id});
+  };
 
   render() {
 
     return(
-      <>
-    <Header />
-    {this.state.currentPage==="courses" && (<Courses />)}
-    {this.state.currentPage==="lesson" && (<Lesson />)}
+    <>
+      <Header onClick={this.onClick}/>
+      {this.state.currentPage==="courses" && (<Courses />)}
+      {this.state.currentPage==="lesson" && (<Lesson />)}
     </>
     );
     
