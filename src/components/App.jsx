@@ -1,16 +1,25 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+import { Component } from "react";
+import { Header } from "./header/Header";
+import { Courses } from "./courses/Courses";
+import { Lesson } from "./lesson/Lesson";
+
+export class App extends Component {
+  state = {
+    currentPage: "courses",
+  };
+
+
+
+  render() {
+
+    return(
+      <>
+    <Header />
+    {this.state.currentPage==="courses" && (<Courses />)}
+    {this.state.currentPage==="lesson" && (<Lesson />)}
+    </>
+    );
+    
+    
+  }
 };
