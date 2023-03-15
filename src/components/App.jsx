@@ -2,16 +2,17 @@ import { Component } from "react";
 import { Header } from "./header/Header";
 import { Courses } from "./courses/Courses";
 import { Lesson } from "./lesson/Lesson";
-import { getData } from "service/api";
+import { getAllCourses } from "service/api";
 
 export class App extends Component {
   state = {
     currentPage: "courses",
   };
 
-  onClick = e => {
+  onClick = async e => {
     this.setState({currentPage: e.target.id});
-    getData();
+    getAllCourses();
+    console.log(await getAllCourses());
   };
 
   render() {
