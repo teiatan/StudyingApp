@@ -1,4 +1,4 @@
-export function Courses({}) {
+export function Courses() {
     return (
         <div>
             <h1>Courses section</h1>

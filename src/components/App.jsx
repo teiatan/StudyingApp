@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Header } from "./header/Header";
 import { Courses } from "./courses/Courses";
 import { Lesson } from "./lesson/Lesson";
+import { getData } from "service/api";
 
 export class App extends Component {
   state = {
@@ -10,6 +11,7 @@ export class App extends Component {
 
   onClick = e => {
     this.setState({currentPage: e.target.id});
+    getData();
   };
 
   render() {
