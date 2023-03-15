@@ -7,6 +7,7 @@ import { getAllCourses } from "service/api";
 export class App extends Component {
   state = {
     currentPage: "courses",
+    coursesData: [],
   };
 
   onClick = async e => {
@@ -15,12 +16,23 @@ export class App extends Component {
     console.log(await getAllCourses());
   };
 
+  async componentDidMount() {
+    const response = await getAllCourses();
+    this.setState({coursesData: response});
+  }
+
   render() {
+    const {title} = this.state.coursesData;
 
     return(
     <>
       <Header onClick={this.onClick}/>
-      {this.state.currentPage==="courses" && (<Courses />)}
+      {this.state.currentPage==="courses" && 
+        (<Courses 
+          title={title}
+
+        />)
+      }
       {this.state.currentPage==="lesson" && (<Lesson />)}
     </>
     );
