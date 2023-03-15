@@ -8,20 +8,23 @@ export function CoursesItem ({id, title, duration, launchDate, containsLockedLes
             <p>Duration: {duration}minutes</p>
             <p>Launch date: {launchDate}</p>
             <p>Lesson count: {lessonsCount}</p>
-            <img src={previewImageLink} alt={previewImageAlt}></img>
+            <img src={previewImageLink + '/cover.webp'} alt={previewImageAlt}></img>
             <p>Raiting: {rating}</p>
-            <ul>Tags: {tags.map(tag => {
-                return (
-                    <li>{tag}</li>
-                );
-            })
-            }</ul>
-            <ul>Skills: {skills/* .map(skill => {
-                return (
-                    <li>{skill}</li>
-                );
-            }) */}</ul>
-
+            <ul>Tags: 
+                {tags.map(tag => {
+                    return (
+                        <li>{tag}</li>
+                    );
+                })}
+            </ul>
+            {skills &&
+                <ul>Skills: {skills.map(skill => {
+                        return (
+                            <li>{skill}</li>
+                        );
+                    })}
+                </ul>
+            }
         </li>
     );
 }
