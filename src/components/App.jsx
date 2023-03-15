@@ -22,16 +22,11 @@ export class App extends Component {
   }
 
   render() {
-    const {title} = this.state.coursesData;
 
     return(
     <>
       <Header onClick={this.onClick}/>
-      {this.state.currentPage==="courses" && 
-        (<Courses 
-          title={title}
-
-        />)
+      {this.state.currentPage==="courses" && (<Courses courses={this.state.coursesData} />)
       }
       {this.state.currentPage==="lesson" && (<Lesson />)}
     </>
