@@ -4,8 +4,12 @@ import { CurrentLesson } from "./currentLesson/CurrentLesson";
 
 export class Lesson extends Component {
 
+    state = {
+        currentLessonNumber: 1,
+        currentLessonId: Object.keys(this.props.courseData).length !==0 ? this.props.courseData.lessons[0].id : "",
+        currentLessonLink: Object.keys(this.props.courseData).length !==0 ? this.props.courseData.lessons[0].link : "",
+    };
      
-
     render() {
     const {title, description, containsLockedLessons, duration, launchDate, lessons, previewImageLink, previewImageAlt, rating, tags} = this.props.courseData;
 
