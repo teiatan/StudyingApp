@@ -15,9 +15,11 @@ export class App extends Component {
   };
 
   async componentDidMount() {
-    const response = await getAllCourses();
-    this.setState({coursesData: response});
-  }
+    if(this.state.currentPage==="courses") {
+      const response = await getAllCourses();
+      this.setState({coursesData: response});
+    };
+  };
 
   render() {
 

@@ -1,7 +1,7 @@
 export function Pagination ({totalPages, onClick}) {
     let counter = 0;
     let paginationArray = [];
-    while(counter < 10) {
+    while(counter < totalPages) {
         counter +=1;
         paginationArray.push(counter);
     };

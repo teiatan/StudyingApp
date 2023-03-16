@@ -53,7 +53,7 @@ export class Courses extends Component {
                         );
                     })}
                 </ul>
-                {<Pagination totalPages={this.state.totalPages} onClick={this.onClickPagination}/>}
+                {this.state.shownCourses.length !==0 && <Pagination totalPages={this.state.totalPages} onClick={this.onClickPagination}/>}
             </div>
         );
     };
