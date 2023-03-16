@@ -3,7 +3,7 @@ import { LessonListItem } from "../lessonListItem/LessonListItem";
 export function LessonsList ({lessons}) {
     return (
         <ul> List of lessons
-            {/* {lessons.map(lesson => {
+            {lessons && lessons.map(lesson => {
                 return(
                     <LessonListItem 
                         key={lesson.id}
@@ -12,7 +12,8 @@ export function LessonsList ({lessons}) {
 
                     />
                 );
-            })} */}
+            })}
         </ul>
     );
+
 };

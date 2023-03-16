@@ -31,9 +31,10 @@ export class Lesson extends Component {
                 </ul>
                 
                 <CurrentLesson />
-                <LessonsList />
+                <LessonsList lessons={lessons}/>
 
-            </>)}</>
+            </>)}
+            </>
         );
     }; 
 };
