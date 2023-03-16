@@ -10,8 +10,8 @@ export class Courses extends Component {
         totalPages: 1,
     };
 
-    componentDidUpdate(prevProps) {
-        if(prevProps.courses !== this.props.courses) {
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps.courses !== this.props.courses || prevState.currentPage !== this.state.currentPage) {
            this.cutCoursesArray(this.state.currentPage); 
         };
         
@@ -23,8 +23,17 @@ export class Courses extends Component {
         this.setState({shownCourses: arrayPerPage.slice((page-1), (page+9)), totalPages: Math.ceil(this.props.courses.length/amountPerPage)});
     };
 
-    onClickPagination = e => {
-        this.setState({currentPage: e.target.textContent})
+    onPageClickPagination = e => {
+        const currentPage = Number(e.target.textContent);
+        this.setState({currentPage: currentPage})
+    };
+
+    onNextClickPagination = () => {
+
+    };
+
+    onPrevClickPagination = () => {
+
     };
 
     render() {   
@@ -53,7 +62,14 @@ export class Courses extends Component {
                         );
                     })}
                 </ul>
-                {this.state.shownCourses.length !==0 && <Pagination totalPages={this.state.totalPages} onClick={this.onClickPagination}/>}
+                {this.state.shownCourses.length !==0 && 
+                    <Pagination 
+                        totalPages={this.state.totalPages} 
+                        onPageClick={this.onPageClickPagination}
+                        onNextClick={this.onNextClickPagination} 
+                        onPrevClick={this.onPrevClickPagination}
+                    />
+                }
             </div>
         );
     };

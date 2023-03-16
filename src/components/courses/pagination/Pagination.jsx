@@ -1,22 +1,19 @@
-export function Pagination ({totalPages, onClick}) {
-    let counter = 0;
+export function Pagination ({totalPages, onPageClick, onNextClick, onPrevClick}) {
+    let pag = 0;
     let paginationArray = [];
-    while(counter < totalPages) {
-        counter +=1;
-        paginationArray.push(counter);
-    };
-    console.log(paginationArray);
-    
+    while(pag < totalPages) {
+        pag +=1;
+        paginationArray.push(pag);
+    }; 
     return (
         <>
-            <button type="button" onClick={onClick}>Prev</button>
+            <button type="button" onClick={onPrevClick}>Prev</button>
             {paginationArray.map(pag => {
-                console.log(pag);
                 return (
-                    <button key={pag} type="button" onClick={onClick}>{pag}</button>
+                    <button key={pag} type="button" onClick={onPageClick}>{pag}</button>
                 );
             })}
-            <button type="button" onClick={onClick}>Next</button>
+            <button type="button" onClick={onNextClick}>Next</button>
         </>
     );
 };
