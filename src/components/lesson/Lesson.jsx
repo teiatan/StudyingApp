@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { LessonsList } from "./lessonsList/LessonsList";
+import { CurrentLesson } from "./currentLesson/CurrentLesson";
 
 export class Lesson extends Component {
 
@@ -6,9 +8,12 @@ export class Lesson extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Lesson section</h1>
-            </div>
+            <>
+                <h2>Lesson section</h2>
+                <CurrentLesson />
+                <LessonsList />
+
+            </>
         );
     };
 };
