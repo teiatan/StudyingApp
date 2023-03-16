@@ -23,8 +23,7 @@ export class Courses extends Component {
         this.setState({shownCourses: coursesPerPage.slice((page-1), (page+9))});
     };
 
-    render() {
-    //const courses = this.cutCoursesArray();    
+    render() {   
         return (
             <div>
                 <h2>Courses section</h2>
