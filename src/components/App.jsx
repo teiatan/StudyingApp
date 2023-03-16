@@ -6,7 +6,7 @@ import { getAllCourses, getOneCourse } from "service/api";
 
 export class App extends Component {
   state = {
-    currentPage: "courses",
+    currentPage: "lesson",
     coursesData: [],
     oneCourseData: [],
     chosenCousreId: "352be3c6-848b-4c19-9e7d-54fe68fef183",
@@ -36,7 +36,7 @@ export class App extends Component {
       if(this.state.currentPage==="lesson") {
         const response = await getOneCourse(this.state.chosenCousreId);
         this.setState({oneCourseData: response});
-        console.log(response);
+        console.log(response.lessons);
       };
     };
   };
