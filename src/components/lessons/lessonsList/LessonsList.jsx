@@ -9,6 +9,12 @@ export function LessonsList ({lessons}) {
                         key={lesson.id}
                         id={lesson.id}
                         duration={lesson.duration}
+                        link={lesson.link}
+                        order={lesson.order}
+                        previewImageLink={lesson.previewImageLink}
+                        status={lesson.status}
+                        title={lesson.title}
+                        type={lesson.type}
 
                     />
                 );
