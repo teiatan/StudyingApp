@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Header } from "./header/Header";
 import { Courses } from "./courses/Courses";
-import { Lesson } from "./lesson/Lesson";
+import { Lesson } from "./lessons/Lessons";
 import { getAllCourses, getOneCourse } from "service/api";
 
 export class App extends Component {
