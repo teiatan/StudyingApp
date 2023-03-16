@@ -47,7 +47,7 @@ export class Courses extends Component {
     render() {   
         return (
             <div>
-                <h2>Courses section</h2>
+                <h2>Avaliable courses</h2>
                 <ul style={{display: "flex", flexWrap: "wrap"}}>
                     {this.state.shownCourses.map(course => {
                         return (
