@@ -5,13 +5,12 @@ import { Pagination } from "./pagination/Pagination";
 export class Courses extends Component {
 
     state = {
-        totalCourses: this.props.courses,
         shownCourses: [],
         currentPage: 1,
         totalPages: 1,
     };
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if(prevProps.courses !== this.props.courses) {
            this.cutCoursesArray(this.state.currentPage); 
         };
@@ -19,8 +18,13 @@ export class Courses extends Component {
     };
 
     cutCoursesArray(page) {
-        const coursesPerPage = [...this.props.courses];
-        this.setState({shownCourses: coursesPerPage.slice((page-1), (page+9))});
+        const amountPerPage = 10;
+        const arrayPerPage = [...this.props.courses];
+        this.setState({shownCourses: arrayPerPage.slice((page-1), (page+9)), totalPages: Math.ceil(this.props.courses.length/amountPerPage)});
+    };
+
+    onClickPagination = e => {
+        this.setState({currentPage: e.target.textContent})
     };
 
     render() {   
@@ -49,7 +53,7 @@ export class Courses extends Component {
                         );
                     })}
                 </ul>
-                {<Pagination pages={this.props.courses}/>}
+                {<Pagination totalPages={this.state.totalPages} onClick={this.onClickPagination}/>}
             </div>
         );
     };

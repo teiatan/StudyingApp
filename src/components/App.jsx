@@ -10,10 +10,8 @@ export class App extends Component {
     coursesData: [],
   };
 
-  onClick = async e => {
+  changePage = async e => {
     this.setState({currentPage: e.target.id});
-    getAllCourses();
-    console.log(await getAllCourses());
   };
 
   async componentDidMount() {
@@ -25,7 +23,7 @@ export class App extends Component {
 
     return(
     <>
-      <Header onClick={this.onClick}/>
+      <Header onClick={this.changePage}/>
       {this.state.currentPage==="courses" && (<Courses courses={this.state.coursesData} />)
       }
       {this.state.currentPage==="lesson" && (<Lesson />)}
