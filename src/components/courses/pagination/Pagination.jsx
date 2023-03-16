@@ -8,11 +8,15 @@ export function Pagination ({totalPages, onClick}) {
     console.log(paginationArray);
     
     return (
-        paginationArray.map(pag => {
-            console.log(pag);
-            return (
-                <button key={pag} type="button" onClick={onClick}>{pag}</button>
-            );
-        })
+        <>
+            <button type="button" onClick={onClick}>Prev</button>
+            {paginationArray.map(pag => {
+                console.log(pag);
+                return (
+                    <button key={pag} type="button" onClick={onClick}>{pag}</button>
+                );
+            })}
+            <button type="button" onClick={onClick}>Next</button>
+        </>
     );
 };
