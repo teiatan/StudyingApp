@@ -29,11 +29,19 @@ export class Courses extends Component {
     };
 
     onNextClickPagination = () => {
-
+        if(this.state.currentPage < this.state.totalPages) {
+            this.setState(prevState => { 
+                return({currentPage: prevState.currentPage+1})
+            });
+        };
     };
 
     onPrevClickPagination = () => {
-
+        if(this.state.currentPage > 1) {
+            this.setState(prevState => { 
+                return({currentPage: prevState.currentPage-1})
+            });
+        };
     };
 
     render() {   
