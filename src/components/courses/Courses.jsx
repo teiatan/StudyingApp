@@ -20,7 +20,7 @@ export class Courses extends Component {
     cutCoursesArray(page) {
         const amountPerPage = 10;
         const arrayPerPage = [...this.props.courses];
-        this.setState({shownCourses: arrayPerPage.slice((page-1), (page+9)), totalPages: Math.ceil(this.props.courses.length/amountPerPage)});
+        this.setState({shownCourses: arrayPerPage.slice((page-1+(amountPerPage-1)*(page-1)), (page+9+(amountPerPage-1)*(page-1))), totalPages: Math.ceil(this.props.courses.length/amountPerPage)});
     };
 
     onPageClickPagination = e => {
