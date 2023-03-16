@@ -1,5 +1,5 @@
-import { CoursesItem } from "./coursesItem/CoursesItem";
 import { Component } from "react";
+import { CoursesItem } from "./coursesItem/CoursesItem";
 import { Pagination } from "./pagination/Pagination";
 
 export class Courses extends Component {
