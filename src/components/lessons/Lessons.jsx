@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { LessonsList } from "./lessonsList/LessonsList";
 import { CurrentLesson } from "./currentLesson/CurrentLesson";
+import { Div } from "./Lessons.styled";
 
 export class Lesson extends Component {
 
@@ -14,7 +15,7 @@ export class Lesson extends Component {
     const {title, description, containsLockedLessons, duration, launchDate, lessons, previewImageLink, previewImageAlt, rating, tags} = this.props.courseData;
 
         return (
-            <>
+            <div className="container">
             {Object.keys(this.props.courseData).length !==0
             &&
             (<>
@@ -33,12 +34,12 @@ export class Lesson extends Component {
                         );
                     })}
                 </ul>
-                
-                <CurrentLesson />
-                <LessonsList lessons={lessons}/>
-
+                <Div>
+                    <CurrentLesson />
+                    <LessonsList lessons={lessons}/>
+                </Div>
             </>)}
-            </>
+            </div>
         );
     }; 
 };

@@ -47,7 +47,7 @@ export class App extends Component {
     return(
     <>
       <Header onClick={this.changePage}/>
-      <h1>Education for everyone!!!</h1>
+      <h1 className="container isHidden">Education for everyone!!!</h1>
       {this.state.currentPage==="courses" && (<Courses courses={this.state.coursesData} />)
       }
       {this.state.currentPage==="lesson" && (<Lesson courseData={this.state.oneCourseData}/>)}

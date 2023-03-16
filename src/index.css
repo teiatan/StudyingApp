@@ -1,5 +1,9 @@
 @import-normalize; /* bring in normalize.css styles */
 
+.test {
+  color: pink;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: whitesmoke;
+  background-color: rgb(247, 210, 216);
+  padding-top: 60px;
 }
 
 code {
@@ -40,4 +45,14 @@ img {
 
 li {
   cursor: pointer;
+  list-style: none;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.isHidden {
+  display: none;
 }

@@ -15,7 +15,6 @@ export function LessonsList ({lessons}) {
                         status={lesson.status}
                         title={lesson.title}
                         type={lesson.type}
-
                     />
                 );
             })}
