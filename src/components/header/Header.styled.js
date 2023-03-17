@@ -7,20 +7,30 @@ export const Container = styled.div`
     gap: 60px;
     font-size: 30px;
     font-weight: 900;
+    //box-shadow: 2px 3px 5px grey;
+    //border-bottom: 1px solid gray;
+    //border-radius: 15px;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    //background-color: pink;
 
 `;
 
 export const Div = styled.div`
     position: fixed;
     top: 0;
-    
+    z-index: 10;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     background-color: pink;
-
+    border-bottom: 1px solid gray;
+    box-shadow: 2px 3px 5px lightgrey;
+    
     
 `;
 

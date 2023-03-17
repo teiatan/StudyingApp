@@ -8,6 +8,8 @@ export function CurrentLesson () {
     {<ReactPlayer
         url={`https://cors-proxy.fringe.zone/${aaaa}`}
         controls={true}
+        width="830px"
+        height="470px"
     />}
 
 </>

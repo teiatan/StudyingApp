@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { LessonsList } from "./lessonsList/LessonsList";
 import { CurrentLesson } from "./currentLesson/CurrentLesson";
-import { Div } from "./Lessons.styled";
+import { PlockedLessons, ImgCourse, DivLessons, DivCourse, SpanTitle, H2, PDescription } from "./Lessons.styled";
 
 export class Lesson extends Component {
 
@@ -19,25 +19,29 @@ export class Lesson extends Component {
             {Object.keys(this.props.courseData).length !==0
             &&
             (<>
-                <h2>{title}</h2>
-                <p>Description: {description}</p>
-                {containsLockedLessons && <p>Contains locked lessons</p>}
-                <p>Duration: {duration}minutes</p>
-                <p>Launch date: {launchDate}</p>
-                <p>Lesson count: {lessons.length}</p>
-                <img src={previewImageLink + '/cover.webp'} alt={previewImageAlt}></img>
-                <p>Raiting: {rating}</p>
-                <ul>Tags: 
-                    {tags.map(tag => {
-                        return (
-                            <li key={tag}>{tag}</li>
-                        );
-                    })}
-                </ul>
-                <Div>
+                <DivCourse>
+                    {/* <p style={{backgroundImage: `${previewImageLink}/cover.webp`, height: "120px"}}></p> */}
+                    <ImgCourse src={previewImageLink + '/cover.webp'} alt={previewImageAlt}></ImgCourse>
+                    <H2>Course: <SpanTitle>{title}</SpanTitle></H2>
+                    <PDescription>{description}</PDescription>
+                    {containsLockedLessons && <PlockedLessons>Contains locked lessons</PlockedLessons>}
+                    <p className="isHidden">Duration: {duration}   seconds</p>
+                    <p className="isHidden">Launch date: {launchDate}</p>
+                    <p className="isHidden">Lesson count: {lessons.length}</p>
+                    <p className="isHidden">Raiting: {rating}</p>
+                    <ul className="isHidden">Tags: 
+                        {tags.map(tag => {
+                            return (
+                                <li key={tag}>{tag}</li>
+                            );
+                        })}
+                    </ul>
+                    
+                </DivCourse>
+                <DivLessons>
                     <CurrentLesson />
                     <LessonsList lessons={lessons}/>
-                </Div>
+                </DivLessons>
             </>)}
             </div>
         );

@@ -6,7 +6,7 @@ import { getAllCourses, getOneCourse } from "service/api";
 
 export class App extends Component {
   state = {
-    currentPage: "lesson",
+    currentPage: "courses",
     coursesData: [],
     oneCourseData: [],
     chosenCousreId: "352be3c6-848b-4c19-9e7d-54fe68fef183",

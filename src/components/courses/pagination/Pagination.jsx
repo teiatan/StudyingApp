@@ -1,3 +1,5 @@
+import { Button, Div } from "./Pagination.styled";
+
 export function Pagination ({totalPages, onPageClick, onNextClick, onPrevClick}) {
     let pag = 0;
     let paginationArray = [];
@@ -6,14 +8,14 @@ export function Pagination ({totalPages, onPageClick, onNextClick, onPrevClick})
         paginationArray.push(pag);
     }; 
     return (
-        <>
-            <button type="button" onClick={onPrevClick}>Prev</button>
+        <Div>
+            <Button type="button" onClick={onPrevClick}>Prev</Button>
             {paginationArray.map(pag => {
                 return (
-                    <button key={pag} type="button" onClick={onPageClick}>{pag}</button>
+                    <Button key={pag} type="button" onClick={onPageClick}>{pag}</Button>
                 );
             })}
-            <button type="button" onClick={onNextClick}>Next</button>
-        </>
+            <Button type="button" onClick={onNextClick}>Next</Button>
+        </Div>
     );
 };

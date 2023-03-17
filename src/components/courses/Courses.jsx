@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { CoursesItem } from "./coursesItem/CoursesItem";
 import { Pagination } from "./pagination/Pagination";
+import { Ul, H2 } from "./Courses.styled";
 
 export class Courses extends Component {
 
@@ -26,6 +27,7 @@ export class Courses extends Component {
     onPageClickPagination = e => {
         const currentPage = Number(e.target.textContent);
         this.setState({currentPage: currentPage})
+        window.scrollTo(0,0);
     };
 
     onNextClickPagination = () => {
@@ -34,6 +36,7 @@ export class Courses extends Component {
                 return({currentPage: prevState.currentPage+1})
             });
         };
+        window.scrollTo(0,0);
     };
 
     onPrevClickPagination = () => {
@@ -42,13 +45,14 @@ export class Courses extends Component {
                 return({currentPage: prevState.currentPage-1})
             });
         };
+        window.scrollTo(0,0);
     };
 
     render() {   
         return (
-            <div>
-                <h2>Avaliable courses</h2>
-                <ul style={{display: "flex", flexWrap: "wrap"}}>
+            <div className="container">
+                <H2>Avaliable courses</H2>
+                <Ul style={{display: "flex", flexWrap: "wrap"}}>
                     {this.state.shownCourses.map(course => {
                         return (
                             <CoursesItem 
@@ -69,7 +73,7 @@ export class Courses extends Component {
                             />
                         );
                     })}
-                </ul>
+                </Ul>
                 {this.state.shownCourses.length !==0 && 
                     <Pagination 
                         totalPages={this.state.totalPages} 

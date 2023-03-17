@@ -1,16 +1,19 @@
+import { Li, Img, Button } from './CoursesItem.styled';
+
 export function CoursesItem ({id, title, duration, launchDate, containsLockedLessons, 
     lessonsCount, previewImageLink, previewImageAlt, rating, tags, skills}) {
     return (
-        <li id={id} style={{height:300, width:300}}>
+        <Li id={id}>
+            <Button>Learn more...</Button>
+            <Img src={previewImageLink + '/cover.webp'} alt={previewImageAlt}></Img>
             <h3>{title}</h3>
-            <p>Description: {}</p>
-            {containsLockedLessons && <p>Contains locked lessons</p>}
-            <p>Duration: {duration}minutes</p>
-            <p>Launch date: {launchDate}</p>
+            <p className='isHidden'>Description: {}</p>
+            {containsLockedLessons && <p className='isHidden'>Contains locked lessons</p>}
+            <p className='isHidden'>Duration: {duration}minutes</p>
+            <p className='isHidden'>Launch date: {launchDate}</p>
             <p>Lesson count: {lessonsCount}</p>
-            <img src={previewImageLink + '/cover.webp'} alt={previewImageAlt}></img>
             <p>Raiting: {rating}</p>
-            <ul>Tags: 
+            <ul className='isHidden'>Tags: 
                 {tags.map(tag => {
                     return (
                         <li key={tag}>{tag}</li>
@@ -18,13 +21,13 @@ export function CoursesItem ({id, title, duration, launchDate, containsLockedLes
                 })}
             </ul>
             {skills &&
-                <ul>Skills: {skills.map(skill => {
+                <ul className='isHidden'>Skills: {skills.map(skill => {
                         return (
                             <li key={skill}>{skill}</li>
                         );
                     })}
                 </ul>
             }
-        </li>
+        </Li>
     );
 }
