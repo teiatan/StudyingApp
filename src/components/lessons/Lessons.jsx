@@ -9,6 +9,7 @@ export class Lessons extends Component {
 
     state = {
         currentLessonNumber: 1,
+        currentLessonTitle: Object.keys(this.props.courseData).length !==0 ? this.props.courseData.lessons[0].title : "",
         currentLessonId: Object.keys(this.props.courseData).length !==0 ? this.props.courseData.lessons[0].id : "",
         currentLessonLink: Object.keys(this.props.courseData).length !==0 ? this.props.courseData.lessons[0].link : "",
     };
@@ -17,6 +18,7 @@ export class Lessons extends Component {
         console.log(number);
         console.log(link);
         console.log(id);
+        this.setState({currentLessonNumber:number, currentLessonId: id, currentLessonLink: link});
     };
      
     render() {
@@ -50,7 +52,12 @@ export class Lessons extends Component {
                     
                 </DivCourse>
                 <DivLessons>
-                    <CurrentLesson number={this.state.currentLessonNumber} id={this.state.currentLessonId} link={this.state.currentLessonLink}/>
+                    <CurrentLesson 
+                        number={this.state.currentLessonNumber} 
+                        id={this.state.currentLessonId} 
+                        link={this.state.currentLessonLink}
+                        title={this.state.currentLessonTitle}
+                    />
                     <LessonsList lessons={lessons} onClick={this.chooseLessonByClick}/>
                 </DivLessons>
             </>}
