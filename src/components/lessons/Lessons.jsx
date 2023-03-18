@@ -2,6 +2,7 @@ import { Component } from "react";
 import { LessonsList } from "./lessonsList/LessonsList";
 import { CurrentLesson } from "./currentLesson/CurrentLesson";
 import { LessonsPlug } from "./lessonsPlug/LessonsPlug";
+import { Loader } from "components/loader/Loader";
 import { PlockedLessons, ImgCourse, DivLessons, DivCourse, SpanTitle, H2, PDescription } from "./Lessons.styled";
 
 export class Lessons extends Component {
@@ -20,7 +21,7 @@ export class Lessons extends Component {
             
             {Object.keys(this.props.courseData).length ===0
             ?
-            this.props.courseId==="" && <LessonsPlug onClick={this.props.changePageFunction}/>
+            this.props.courseId==="" ? <LessonsPlug onClick={this.props.changePageFunction}/> : <Loader/>
             :
             <>
                 <DivCourse>
