@@ -35,8 +35,9 @@ export class Courses extends Component {
             this.setState(prevState => { 
                 return({currentPage: prevState.currentPage+1})
             });
+            window.scrollTo(0,0);
         };
-        window.scrollTo(0,0);
+        
     };
 
     onPrevClickPagination = () => {
@@ -44,8 +45,9 @@ export class Courses extends Component {
             this.setState(prevState => { 
                 return({currentPage: prevState.currentPage-1})
             });
+            window.scrollTo(0,0);
         };
-        window.scrollTo(0,0);
+        
     };
 
     render() {   
@@ -82,6 +84,7 @@ export class Courses extends Component {
                         onPageClick={this.onPageClickPagination}
                         onNextClick={this.onNextClickPagination} 
                         onPrevClick={this.onPrevClickPagination}
+                        currentPage={this.state.currentPage}
                     />
                 }
             </div>
