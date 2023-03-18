@@ -14,6 +14,20 @@ export class App extends Component {
   };
 
   async componentDidMount() {
+    const currentPage = localStorage.getItem('currentPage');
+    if(currentPage) {
+      this.setState({
+        currentPage: currentPage,
+      })
+    };
+
+    const chosenCousreId = localStorage.getItem('chosenCousreId');
+    if(chosenCousreId) {
+      this.setState({
+        chosenCousreId: chosenCousreId,
+      })
+    };
+
     if(this.state.currentPage==="courses") {
       const response = await getAllCourses();
       this.setState({coursesData: response, loader: false});
@@ -36,6 +50,14 @@ export class App extends Component {
         this.setState({oneCourseData: response});
         console.log(response);
       };
+    };
+
+    if(this.state.currentPage !== prevState.currentPage) {
+      localStorage.setItem('currentPage', this.state.currentPage);
+    };
+
+    if(this.state.chosenCousreId !== prevState.chosenCousreId) {
+      localStorage.setItem('chosenCousreId', this.state.chosenCousreId);
     };
   };
 
