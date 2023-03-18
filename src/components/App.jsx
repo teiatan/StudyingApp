@@ -10,12 +10,13 @@ export class App extends Component {
     coursesData: [],
     oneCourseData: [],
     chosenCousreId: "",
+    loader: true,
   };
 
   async componentDidMount() {
     if(this.state.currentPage==="courses") {
       const response = await getAllCourses();
-      this.setState({coursesData: response});
+      this.setState({coursesData: response, loader: false});
     };
     if(this.state.currentPage==="lessons" && this.state.chosenCousreId !== "") {
       const response = await getOneCourse(this.state.chosenCousreId);
@@ -28,7 +29,7 @@ export class App extends Component {
     if(this.state.currentPage !== prevState.currentPage) {
       if(this.state.currentPage==="courses") {
         const response = await getAllCourses();
-        this.setState({coursesData: response});
+        this.setState({coursesData: response, loader: false});
       };
       if(this.state.currentPage==="lessons" && this.state.chosenCousreId !== "") {
         const response = await getOneCourse(this.state.chosenCousreId);
@@ -38,12 +39,12 @@ export class App extends Component {
   };
 
   changePage = async e => {
-    this.setState({currentPage: e.target.id});
+    this.setState({currentPage: e.target.id, loader:true});
   };
 
   learnMoreAboutCourse = (id) => {
     this.setState({chosenCousreId: id, currentPage: "lessons"})
-  }
+  };
 
   render() {
 
@@ -51,7 +52,7 @@ export class App extends Component {
     <>
       <Header onClick={this.changePage}/>
       <h1 className="container isHidden">Education for everyone!!!</h1>
-      {this.state.currentPage==="courses" && (<Courses courses={this.state.coursesData} onLearnMoreClick={this.learnMoreAboutCourse}/>)
+      {this.state.currentPage==="courses" && (<Courses courses={this.state.coursesData} onLearnMoreClick={this.learnMoreAboutCourse} loader={this.state.loader}/>)
       }
       {this.state.currentPage==="lessons" && (<Lessons courseData={this.state.oneCourseData} courseId={this.state.chosenCousreId} changePageFunction={this.changePage}/>)}
     </>

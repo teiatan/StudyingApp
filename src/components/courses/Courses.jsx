@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { CoursesItem } from "./coursesItem/CoursesItem";
 import { Pagination } from "./pagination/Pagination";
+import { Loader } from "components/loader/Loader";
 import { Ul, H2 } from "./Courses.styled";
 
 export class Courses extends Component {
@@ -52,6 +53,7 @@ export class Courses extends Component {
         return (
             <div className="container">
                 <H2>Avaliable courses</H2>
+                {this.props.loader===true && <Loader />}
                 <Ul style={{display: "flex", flexWrap: "wrap"}}>
                     {this.state.shownCourses.map(course => {
                         return (
