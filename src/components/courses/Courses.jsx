@@ -15,8 +15,7 @@ export class Courses extends Component {
     componentDidUpdate(prevProps, prevState) {
         if(prevProps.courses !== this.props.courses || prevState.currentPage !== this.state.currentPage) {
            this.cutCoursesArray(this.state.currentPage); 
-        };
-        
+        };  
     };
 
     cutCoursesArray(page) {
@@ -29,7 +28,6 @@ export class Courses extends Component {
         const currentPage = Number(e.target.textContent);
         this.setState({currentPage: currentPage})
         window.scrollTo(0,0);
-        //e.target.classList.add('currentPage');
     };
 
     onNextClickPagination = () => {

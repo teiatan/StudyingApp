@@ -7,14 +7,10 @@ export const Container = styled.div`
     gap: 60px;
     font-size: 30px;
     font-weight: 900;
-    //box-shadow: 2px 3px 5px grey;
-    //border-bottom: 1px solid gray;
-    //border-radius: 15px;
     height: 100%;
     padding-left: 10px;
     padding-right: 10px;
     box-sizing: border-box;
-    //background-color: pink;
 
 `;
 

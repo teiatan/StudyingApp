@@ -14,6 +14,18 @@ export class Lessons extends Component {
         currentLessonLink: "",
     };
 
+    componentDidMount() {
+        const currentLessonId = localStorage.getItem('currentLessonId');
+        if(currentLessonId) {
+          this.setState({
+            currentLessonId: currentLessonId,
+            currentLessonNumber: localStorage.getItem('currentLessonNumber'),
+            currentLessonTitle: localStorage.getItem('currentLessonTitle'),
+            currentLessonLink: localStorage.getItem('currentLessonLink'),
+          })
+        };
+    };
+
     componentDidUpdate(prevProps, prevState) {
         if(prevProps.courseData.id !== this.props.courseData.id ) {
             this.setState({
@@ -21,7 +33,14 @@ export class Lessons extends Component {
             currentLessonId: this.props.courseData.lessons[0].id,
             currentLessonLink: this.props.courseData.lessons[0].link,
         })
-        }
+        };
+
+        if(prevState.currentLessonId !== this.state.currentLessonId) {
+            localStorage.setItem('currentLessonNumber', this.state.currentLessonNumber);
+            localStorage.setItem('currentLessonTitle', this.state.currentLessonTitle);
+            localStorage.setItem('currentLessonId', this.state.currentLessonId);
+            localStorage.setItem('currentLessonLink', this.state.currentLessonLink);
+        };
     };
 
     chooseLessonByClick = (number, link, id, title, status) => {
