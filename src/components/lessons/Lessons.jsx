@@ -15,17 +15,17 @@ export class Lessons extends Component {
     };
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevState.currentLessonId !== this.state.currentLessonId ) {
+        if(prevProps.courseData.id !== this.props.courseData.id ) {
             this.setState({
             currentLessonTitle: this.props.courseData.lessons[0].title,
-            //currentLessonId: this.props.courseData.lessons[0].id,
+            currentLessonId: this.props.courseData.lessons[0].id,
             currentLessonLink: this.props.courseData.lessons[0].link,
         })
         }
     };
 
     chooseLessonByClick = (number, link, id, title, status) => {
-        if(status === 'unlocked'){
+        if(status !== 'locked'){
             this.setState({currentLessonNumber:number, currentLessonId: id, currentLessonLink: link, currentLessonTitle: title});
         };
     };
@@ -66,6 +66,7 @@ export class Lessons extends Component {
                         id={this.state.currentLessonId} 
                         link={this.state.currentLessonLink}
                         title={this.state.currentLessonTitle}
+                        previewImageLink={this.state.currentLessonPrewievImage}
                     />
                     <LessonsList lessons={lessons} onClick={this.chooseLessonByClick}/>
                 </DivLessons>

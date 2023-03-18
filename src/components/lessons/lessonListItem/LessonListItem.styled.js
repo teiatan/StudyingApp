@@ -17,6 +17,6 @@ export const Li = styled.li`
 `;
 
 export const Plocked = styled.p`
-    color: red;
+    color: darkred;
 `;
 

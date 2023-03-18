@@ -34,7 +34,7 @@ export class App extends Component {
       if(this.state.currentPage==="lessons" && this.state.chosenCousreId !== "") {
         const response = await getOneCourse(this.state.chosenCousreId);
         this.setState({oneCourseData: response});
-        console.log(response.lessons);
+        console.log(response);
       };
     };
   };
