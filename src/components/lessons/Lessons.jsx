@@ -24,11 +24,8 @@ export class Lessons extends Component {
         }
     };
 
-    chooseLessonByClick = (number, link, id) => {
-        console.log(number);
-        console.log(link);
-        console.log(id);
-        this.setState({currentLessonNumber:number, currentLessonId: id, currentLessonLink: link});
+    chooseLessonByClick = (number, link, id, title) => {
+        this.setState({currentLessonNumber:number, currentLessonId: id, currentLessonLink: link, currentLessonTitle: title});
     };
      
     render() {
