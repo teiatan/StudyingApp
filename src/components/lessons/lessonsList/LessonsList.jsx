@@ -1,6 +1,6 @@
 import { LessonListItem } from "../lessonListItem/LessonListItem";
 
-export function LessonsList ({lessons}) {
+export function LessonsList ({lessons, onClick}) {
     return (
         <ul> List of lessons
             {lessons && lessons.map(lesson => {
@@ -15,6 +15,7 @@ export function LessonsList ({lessons}) {
                         status={lesson.status}
                         title={lesson.title}
                         type={lesson.type}
+                        onClick={onClick}
                     />
                 );
             })}

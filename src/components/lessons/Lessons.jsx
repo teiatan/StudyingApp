@@ -12,6 +12,12 @@ export class Lessons extends Component {
         currentLessonId: Object.keys(this.props.courseData).length !==0 ? this.props.courseData.lessons[0].id : "",
         currentLessonLink: Object.keys(this.props.courseData).length !==0 ? this.props.courseData.lessons[0].link : "",
     };
+
+    chooseLessonByClick = (number, link, id) => {
+        console.log(number);
+        console.log(link);
+        console.log(id);
+    };
      
     render() {
     const {title, description, containsLockedLessons, duration, launchDate, lessons, previewImageLink, previewImageAlt, rating, tags} = this.props.courseData;
@@ -44,8 +50,8 @@ export class Lessons extends Component {
                     
                 </DivCourse>
                 <DivLessons>
-                    <CurrentLesson />
-                    <LessonsList lessons={lessons}/>
+                    <CurrentLesson number={this.state.currentLessonNumber} id={this.state.currentLessonId} link={this.state.currentLessonLink}/>
+                    <LessonsList lessons={lessons} onClick={this.chooseLessonByClick}/>
                 </DivLessons>
             </>}
             </div>
