@@ -9,7 +9,7 @@ export async function getData() {
     };
 };
 
-axios.defaults.baseURL = 'https://api.wisey.app/api/v1';
+axios.defaults.baseURL = 'https://cors-proxy.fringe.zone/https://api.wisey.app/api/v1';
 
 const setToken = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
