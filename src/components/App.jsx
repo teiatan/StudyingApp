@@ -32,15 +32,18 @@ export class App extends Component {
       const response = await getAllCourses();
       this.setState({coursesData: response, loader: false});
     };
+
     if(this.state.currentPage==="lessons" && this.state.chosenCousreId !== "") {
       const response = await getOneCourse(this.state.chosenCousreId);
       this.setState({oneCourseData: response});
-      console.log(response.lessons);
     };
   };
 
   async componentDidUpdate(_,prevState) {
     if(this.state.currentPage !== prevState.currentPage) {
+
+      localStorage.setItem('currentPage', this.state.currentPage);
+
       if(this.state.currentPage==="courses") {
         const response = await getAllCourses();
         this.setState({coursesData: response, loader: false});
@@ -52,16 +55,12 @@ export class App extends Component {
       };
     };
 
-    if(this.state.currentPage !== prevState.currentPage) {
-      localStorage.setItem('currentPage', this.state.currentPage);
-    };
-
     if(this.state.chosenCousreId !== prevState.chosenCousreId) {
       localStorage.setItem('chosenCousreId', this.state.chosenCousreId);
     };
   };
 
-  changePage = async e => {
+  changePage = e => {
     this.setState({currentPage: e.target.id, loader:true});
   };
 
