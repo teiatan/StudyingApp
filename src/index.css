@@ -1,7 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
 
 .test {
-  color: pink;
+  color: rgb(13, 99, 94);
 }
 
 body {

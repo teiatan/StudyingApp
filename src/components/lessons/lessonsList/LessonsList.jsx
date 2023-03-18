@@ -1,8 +1,9 @@
 import { LessonListItem } from "../lessonListItem/LessonListItem";
+import { Ul } from "./LessonsList.styled";
 
 export function LessonsList ({lessons, onClick}) {
     return (
-        <ul> List of lessons
+        <Ul>
             {lessons && lessons.map(lesson => {
                 return(
                     <LessonListItem 
@@ -19,7 +20,7 @@ export function LessonsList ({lessons, onClick}) {
                     />
                 );
             })}
-        </ul>
+        </Ul>
     );
 
 };

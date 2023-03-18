@@ -15,17 +15,19 @@ export class Lessons extends Component {
     };
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevState.currentLessonId === this.state.currentLessonId) {
+        if(prevState.currentLessonId !== this.state.currentLessonId ) {
             this.setState({
             currentLessonTitle: this.props.courseData.lessons[0].title,
-            currentLessonId: this.props.courseData.lessons[0].id,
+            //currentLessonId: this.props.courseData.lessons[0].id,
             currentLessonLink: this.props.courseData.lessons[0].link,
         })
         }
     };
 
-    chooseLessonByClick = (number, link, id, title) => {
-        this.setState({currentLessonNumber:number, currentLessonId: id, currentLessonLink: link, currentLessonTitle: title});
+    chooseLessonByClick = (number, link, id, title, status) => {
+        if(status === 'unlocked'){
+            this.setState({currentLessonNumber:number, currentLessonId: id, currentLessonLink: link, currentLessonTitle: title});
+        };
     };
      
     render() {

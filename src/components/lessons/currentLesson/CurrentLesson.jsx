@@ -1,15 +1,16 @@
 import ReactPlayer from 'react-player';
+import { Div } from './CurrentLesson.styled';
 
-export function CurrentLesson ({title, link}) {
+export function CurrentLesson ({title, link, number}) {
  return (
-    <>
-        <h3 className='isHidden'>{title}</h3>
+    <Div>
+        <h3>Lesson {number} : {title}</h3>
         <ReactPlayer
             url={`https://cors-proxy.fringe.zone/${link}`}
             controls={true}
-            width="830px"
-            height="470px"
+            width="750px"
+            height="auto"
         />
-    </>
+    </Div>
  )
 };

@@ -9,7 +9,9 @@ export const DivLessons = styled.div`
     box-shadow: 2px 3px 5px lightsteelblue;
     border: 1px solid lightsteelblue;
     border-radius: 15px;
-    min-height: 470px;
+    height: 470px;
+    gap: 20px;
+    margin-bottom: 30px;
 `;
 
 export const SpanTitle = styled.span`
