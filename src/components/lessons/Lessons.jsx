@@ -9,9 +9,19 @@ export class Lessons extends Component {
 
     state = {
         currentLessonNumber: 1,
-        currentLessonTitle: Object.keys(this.props.courseData).length !==0 ? this.props.courseData.lessons[0].title : "",
-        currentLessonId: Object.keys(this.props.courseData).length !==0 ? this.props.courseData.lessons[0].id : "",
-        currentLessonLink: Object.keys(this.props.courseData).length !==0 ? this.props.courseData.lessons[0].link : "",
+        currentLessonTitle: "",
+        currentLessonId: "",
+        currentLessonLink: "",
+    };
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.currentLessonId === this.state.currentLessonId) {
+            this.setState({
+            currentLessonTitle: this.props.courseData.lessons[0].title,
+            currentLessonId: this.props.courseData.lessons[0].id,
+            currentLessonLink: this.props.courseData.lessons[0].link,
+        })
+        }
     };
 
     chooseLessonByClick = (number, link, id) => {
