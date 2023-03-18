@@ -37,6 +37,10 @@ ol {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -46,6 +50,10 @@ img {
 li {
   cursor: pointer;
   list-style: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 .container {

@@ -57,6 +57,7 @@ export class Courses extends Component {
                         return (
                             <CoursesItem 
                                 key={course.id}
+                                onLearnMoreClick={this.props.onLearnMoreClick}
                                 id={course.id}
                                 title={course.title}
                                 /* description={} */

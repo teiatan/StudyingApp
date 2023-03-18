@@ -1,9 +1,10 @@
 import { Component } from "react";
 import { LessonsList } from "./lessonsList/LessonsList";
 import { CurrentLesson } from "./currentLesson/CurrentLesson";
+import { LessonsPlug } from "./lessonsPlug/LessonsPlug";
 import { PlockedLessons, ImgCourse, DivLessons, DivCourse, SpanTitle, H2, PDescription } from "./Lessons.styled";
 
-export class Lesson extends Component {
+export class Lessons extends Component {
 
     state = {
         currentLessonNumber: 1,
@@ -16,9 +17,12 @@ export class Lesson extends Component {
 
         return (
             <div className="container">
-            {Object.keys(this.props.courseData).length !==0
-            &&
-            (<>
+            
+            {Object.keys(this.props.courseData).length ===0
+            ?
+            this.props.courseId==="" && <LessonsPlug onClick={this.props.changePageFunction}/>
+            :
+            <>
                 <DivCourse>
                     {/* <p style={{backgroundImage: `${previewImageLink}/cover.webp`, height: "120px"}}></p> */}
                     <ImgCourse src={previewImageLink + '/cover.webp'} alt={previewImageAlt}></ImgCourse>
@@ -42,7 +46,7 @@ export class Lesson extends Component {
                     <CurrentLesson />
                     <LessonsList lessons={lessons}/>
                 </DivLessons>
-            </>)}
+            </>}
             </div>
         );
     }; 

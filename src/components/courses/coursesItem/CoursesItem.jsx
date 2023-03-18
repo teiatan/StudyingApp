@@ -1,10 +1,10 @@
 import { Li, Img, Button } from './CoursesItem.styled';
 
-export function CoursesItem ({id, title, duration, launchDate, containsLockedLessons, 
+export function CoursesItem ({id, onLearnMoreClick, title, duration, launchDate, containsLockedLessons, 
     lessonsCount, previewImageLink, previewImageAlt, rating, tags, skills}) {
     return (
         <Li id={id}>
-            <Button>Learn more...</Button>
+            <Button onClick={() => onLearnMoreClick(id)}>Learn more...</Button>
             <Img src={previewImageLink + '/cover.webp'} alt={previewImageAlt}></Img>
             <h3>{title}</h3>
             <p className='isHidden'>Description: {}</p>

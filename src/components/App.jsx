@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Header } from "./header/Header";
 import { Courses } from "./courses/Courses";
-import { Lesson } from "./lessons/Lessons";
+import { Lessons } from "./lessons/Lessons";
 import { getAllCourses, getOneCourse } from "service/api";
 
 export class App extends Component {
@@ -9,11 +9,7 @@ export class App extends Component {
     currentPage: "courses",
     coursesData: [],
     oneCourseData: [],
-    chosenCousreId: "352be3c6-848b-4c19-9e7d-54fe68fef183",
-  };
-
-  changePage = async e => {
-    this.setState({currentPage: e.target.id});
+    chosenCousreId: "",
   };
 
   async componentDidMount() {
@@ -21,7 +17,7 @@ export class App extends Component {
       const response = await getAllCourses();
       this.setState({coursesData: response});
     };
-    if(this.state.currentPage==="lesson") {
+    if(this.state.currentPage==="lessons" && this.state.chosenCousreId !== "") {
       const response = await getOneCourse(this.state.chosenCousreId);
       this.setState({oneCourseData: response});
       console.log(response.lessons);
@@ -34,13 +30,20 @@ export class App extends Component {
         const response = await getAllCourses();
         this.setState({coursesData: response});
       };
-      if(this.state.currentPage==="lesson") {
+      if(this.state.currentPage==="lessons" && this.state.chosenCousreId !== "") {
         const response = await getOneCourse(this.state.chosenCousreId);
         this.setState({oneCourseData: response});
-        console.log(response.lessons);
       };
     };
   };
+
+  changePage = async e => {
+    this.setState({currentPage: e.target.id});
+  };
+
+  learnMoreAboutCourse = (id) => {
+    this.setState({chosenCousreId: id, currentPage: "lessons"})
+  }
 
   render() {
 
@@ -48,9 +51,9 @@ export class App extends Component {
     <>
       <Header onClick={this.changePage}/>
       <h1 className="container isHidden">Education for everyone!!!</h1>
-      {this.state.currentPage==="courses" && (<Courses courses={this.state.coursesData} />)
+      {this.state.currentPage==="courses" && (<Courses courses={this.state.coursesData} onLearnMoreClick={this.learnMoreAboutCourse}/>)
       }
-      {this.state.currentPage==="lesson" && (<Lesson courseData={this.state.oneCourseData}/>)}
+      {this.state.currentPage==="lessons" && (<Lessons courseData={this.state.oneCourseData} courseId={this.state.chosenCousreId} changePageFunction={this.changePage}/>)}
     </>
     );
     
