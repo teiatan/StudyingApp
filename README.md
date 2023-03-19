@@ -1,12 +1,12 @@
 # Навчальна платформа StudyingApp
-була створена в рамках кейсового завдання для Genesis Front-End School 2.0 на основі готового [АРІ] (https://www.postman.com/aninix/workspace/genesis-front-end-school/overview).
+була створена в рамках кейсового завдання для Genesis Front-End School 2.0 на основі готового [АРІ](https://www.postman.com/aninix/workspace/genesis-front-end-school/overview).
 
 
 ## Технології
 
 HTML, CSS, JS, REACT
 
-Для реалізації було використано шаблон [Create React App](https://github.com/facebook/create-react-app). ([документація])(https://facebook.github.io/create-react-app/docs/getting-started).
+Для реалізації було використано шаблон [Create React App](https://github.com/facebook/create-react-app). ([документація](https://facebook.github.io/create-react-app/docs/getting-started)).
 
 Для стилізації використано біліотеку [@emotion](https://emotion.sh/docs/introduction) за допомогою компонентів styled.
 
