@@ -16,8 +16,8 @@ export function Pagination ({totalPages, onPageClick, onNextClick, onPrevClick, 
                 return (
                     <div key={pag}>
                         {currentPage===pag ?  
-                        <Button key={pag} type="button" disabled>{pag}</Button> :
-                        <Button key={pag} type="button" onClick={onPageClick}>{pag}</Button>}
+                        <Button type="button" disabled>{pag}</Button> :
+                        <Button type="button" onClick={onPageClick}>{pag}</Button>}
 
                     </div>
                 );

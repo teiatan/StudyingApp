@@ -12,6 +12,7 @@ export class Lessons extends Component {
         currentLessonTitle: "",
         currentLessonId: "",
         currentLessonLink: "",
+        currentLessonPrewievImage: "",
     };
 
     componentDidMount() {
@@ -22,6 +23,7 @@ export class Lessons extends Component {
             currentLessonNumber: localStorage.getItem('currentLessonNumber'),
             currentLessonTitle: localStorage.getItem('currentLessonTitle'),
             currentLessonLink: localStorage.getItem('currentLessonLink'),
+            currentLessonPrewievImage: localStorage.getItem('currentLessonPrewievImage'),
           })
         };
     };
@@ -32,6 +34,8 @@ export class Lessons extends Component {
             currentLessonTitle: this.props.courseData.lessons[0].title,
             currentLessonId: this.props.courseData.lessons[0].id,
             currentLessonLink: this.props.courseData.lessons[0].link,
+            currentLessonPrewievImage: `${this.props.courseData.lessons[0].previewImageLink}/lesson-1.webp`,
+            currentLessonNumber: 1
         })
         };
 
@@ -40,12 +44,13 @@ export class Lessons extends Component {
             localStorage.setItem('currentLessonTitle', this.state.currentLessonTitle);
             localStorage.setItem('currentLessonId', this.state.currentLessonId);
             localStorage.setItem('currentLessonLink', this.state.currentLessonLink);
+            localStorage.setItem('currentLessonPrewievImage', this.state.currentLessonPrewievImage);
         };
     };
 
-    chooseLessonByClick = (number, link, id, title, status) => {
+    chooseLessonByClick = (number, link, id, title, status, imgLink) => {
         if(status !== 'locked'){
-            this.setState({currentLessonNumber:number, currentLessonId: id, currentLessonLink: link, currentLessonTitle: title});
+            this.setState({currentLessonNumber:number, currentLessonId: id, currentLessonLink: link, currentLessonTitle: title, currentLessonPrewievImage: imgLink});
         };
     };
      
@@ -85,7 +90,7 @@ export class Lessons extends Component {
                         id={this.state.currentLessonId} 
                         link={this.state.currentLessonLink}
                         title={this.state.currentLessonTitle}
-                        previewImageLink={this.state.currentLessonPrewievImage}
+                        imgLink={this.state.currentLessonPrewievImage}
                     />
                     <LessonsList lessons={lessons} onClick={this.chooseLessonByClick}/>
                 </DivLessons>
@@ -94,3 +99,6 @@ export class Lessons extends Component {
         );
     }; 
 };
+
+//"https://wisey.app/assets/images/web/lessons-covers/memory-bootcamp/lesson-1"
+//"https://wisey.app/assets/images/web/lessons-covers/memory-bootcamp/lesson-1/lesson-1.webp"
