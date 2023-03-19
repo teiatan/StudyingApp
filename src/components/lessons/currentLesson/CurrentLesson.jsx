@@ -4,6 +4,14 @@ import Hls from 'hls.js';
 
 export function CurrentLesson ({title, link, number, imgLink}) {
     const video = document.getElementById('video');
+
+    const videoTime = localStorage.getItem('viodeTime');
+    if(videoTime) {
+        video.currentTime=videoTime;
+    } else {
+        video.currentTime=20;
+    };
+    
     const videoSrc = `https://cors-proxy.fringe.zone/${link}`;
     if (Hls.isSupported()) {
         var hls = new Hls();
@@ -12,6 +20,7 @@ export function CurrentLesson ({title, link, number, imgLink}) {
     }
     else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = videoSrc;
+        
     }
  return (
     <Div>
@@ -25,9 +34,10 @@ export function CurrentLesson ({title, link, number, imgLink}) {
         /> */}
         <video id='video'
         /* src={`https://cors-proxy.fringe.zone/${link}`} */
-        /* poster={`${previewImageLink}/lesson-${number}.webp`} */
+        poster={`${imgLink}/lesson-${number}.webp`}
         width="750px"
         controls
+        
         ></video>
         {}
     </Div>
