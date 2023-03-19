@@ -52,6 +52,11 @@ export class Lessons extends Component {
         if(status !== 'locked'){
             this.setState({currentLessonNumber:number, currentLessonId: id, currentLessonLink: link, currentLessonTitle: title, currentLessonPrewievImage: imgLink});
         };
+        localStorage.setItem('videoTime', 0);
+    };
+
+    getCurrentTimeOfPlayedVideo = (time) => {
+        localStorage.setItem('videoTime', time);
     };
      
     render() {
@@ -91,6 +96,8 @@ export class Lessons extends Component {
                         link={this.state.currentLessonLink}
                         title={this.state.currentLessonTitle}
                         imgLink={this.state.currentLessonPrewievImage}
+                        videoTime={this.state.videoTime}
+                        getTime={this.getCurrentTimeOfPlayedVideo}
                     />
                     <LessonsList lessons={lessons} onClick={this.chooseLessonByClick}/>
                 </DivLessons>
@@ -99,6 +106,3 @@ export class Lessons extends Component {
         );
     }; 
 };
-
-//"https://wisey.app/assets/images/web/lessons-covers/memory-bootcamp/lesson-1"
-//"https://wisey.app/assets/images/web/lessons-covers/memory-bootcamp/lesson-1/lesson-1.webp"

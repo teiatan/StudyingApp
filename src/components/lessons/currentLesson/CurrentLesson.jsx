@@ -1,27 +1,40 @@
 //import ReactPlayer from 'react-player';
 import { Div } from './CurrentLesson.styled';
 import Hls from 'hls.js';
+import { useEffect } from "react";
 
-export function CurrentLesson ({title, link, number, imgLink}) {
-    const video = document.getElementById('video');
-
-    const videoTime = localStorage.getItem('viodeTime');
-    if(videoTime) {
-        video.currentTime=videoTime;
-    } else {
-        video.currentTime=20;
-    };
-    
+export function CurrentLesson ({title, link, number, imgLink, videoTime, getTime}) {
+    const video = document.getElementById('video');    
     const videoSrc = `https://cors-proxy.fringe.zone/${link}`;
-    if (Hls.isSupported()) {
-        var hls = new Hls();
-        hls.loadSource(videoSrc);
-        hls.attachMedia(video);
-    }
-    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = videoSrc;
-        
-    }
+    let progress = localStorage.getItem('videoTime');
+    useEffect(() => {
+        if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+          if (!video) return;
+
+          
+          if(!progress) {progress=0};
+          const onTimeUpdate = () => {
+            const time = video.currentTime;
+            localStorage.setItem('videoTime', time);
+          };
+    
+          const onPlay = () => {
+            video.currentTime = progress;
+          };
+    
+          video.addEventListener('play', onPlay);
+          video.addEventListener('pause', onTimeUpdate);
+    
+          return () => {
+            video.removeEventListener('pause', onTimeUpdate);
+            video.removeEventListener('play', onPlay);
+          };
+        };
+      }, [progress, video, videoSrc]);
+
  return (
     <Div>
         <h3>Lesson {number} : {title}</h3>
