@@ -7,6 +7,7 @@ export function CurrentLesson ({title, link, number, imgLink, videoTime, getTime
     const video = document.getElementById('video');    
     const videoSrc = `https://cors-proxy.fringe.zone/${link}`;
     let progress = localStorage.getItem('videoTime');
+    if(!progress) {progress=0};
     useEffect(() => {
         if (Hls.isSupported()) {
             const hls = new Hls();
@@ -15,7 +16,7 @@ export function CurrentLesson ({title, link, number, imgLink, videoTime, getTime
           if (!video) return;
 
           
-          if(!progress) {progress=0};
+          
           const onTimeUpdate = () => {
             const time = video.currentTime;
             localStorage.setItem('videoTime', time);
