@@ -6,7 +6,7 @@
 
 HTML, CSS, JS, REACT
 
-Для реалізації було використано шаблон [Create React App](https://github.com/facebook/create-react-app). ([документація](https://facebook.github.io/create-react-app/docs/getting-started)).
+Для реалізації було використано шаблон [Create React App](https://github.com/facebook/create-react-app) ([документація](https://facebook.github.io/create-react-app/docs/getting-started)).
 
 Для стилізації використано біліотеку [@emotion](https://emotion.sh/docs/introduction) за допомогою компонентів styled.
 
