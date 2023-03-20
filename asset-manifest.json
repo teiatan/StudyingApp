@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/StudyingApp/static/css/main.e38ff7e6.css",
-    "main.js": "/StudyingApp/static/js/main.cc02efac.js",
+    "main.js": "/StudyingApp/static/js/main.c3eaf87a.js",
     "index.html": "/StudyingApp/index.html",
     "main.e38ff7e6.css.map": "/StudyingApp/static/css/main.e38ff7e6.css.map",
-    "main.cc02efac.js.map": "/StudyingApp/static/js/main.cc02efac.js.map"
+    "main.c3eaf87a.js.map": "/StudyingApp/static/js/main.c3eaf87a.js.map"
   },
   "entrypoints": [
     "static/css/main.e38ff7e6.css",
-    "static/js/main.cc02efac.js"
+    "static/js/main.c3eaf87a.js"
   ]
 }
