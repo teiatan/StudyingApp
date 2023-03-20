@@ -54,7 +54,7 @@ export function CurrentLesson ({title, link, number, imgLink, videoTime, getTime
         controls
         
         ></video>
-        <Button onClick={()=>pictureInPictureData(videoSrc)}>start picture in picture</Button>
+        <Button onClick={()=>pictureInPictureData(videoSrc, progress)}>start picture in picture</Button>
         {}
     </Div>
  )

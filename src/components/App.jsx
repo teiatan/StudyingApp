@@ -69,9 +69,9 @@ export class App extends Component {
     this.setState({chosenCousreId: id, currentPage: "lessons"})
   };
 
-  getPictureInPictureData = (link) => {
+  getPictureInPictureData = (link, progress) => {
     console.log(link);
-    this.setState({pictureInPictureData: link});
+    this.setState({pictureInPictureData: {link: link, progress: progress}});
   };
 
   render() {

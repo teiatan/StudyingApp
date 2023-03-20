@@ -7,4 +7,5 @@ right: 0;
 width: 300px;
 height: auto;
 background-color: grey;
+z-index: 100;
 `;
