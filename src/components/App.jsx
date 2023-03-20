@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Header } from "./header/Header";
 import { Courses } from "./courses/Courses";
 import { Lessons } from "./lessons/Lessons";
+import { PictureInPicture } from "./pictureInPicture/PictureInPicture";
 import { getAllCourses, getOneCourse } from "service/api";
 
 export class App extends Component {
@@ -77,6 +78,7 @@ export class App extends Component {
       {this.state.currentPage==="courses" && (<Courses courses={this.state.coursesData} onLearnMoreClick={this.learnMoreAboutCourse} loader={this.state.loader}/>)
       }
       {this.state.currentPage==="lessons" && (<Lessons courseData={this.state.oneCourseData} courseId={this.state.chosenCousreId} changePageFunction={this.changePage}/>)}
+      <PictureInPicture />
     </>
     );
     

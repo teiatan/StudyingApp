@@ -19,7 +19,7 @@ export function CoursesItem ({id, onLearnMoreClick, title, duration, launchDate,
 
 
     return (
-        <Li id={id} onMouseEnter={() => {console.log(videoLink); setHovered(true)}} onMouseLeave={() => {console.log('mouse leave'); setHovered(false)}}>
+        <Li id={id} onMouseEnter={() => {setHovered(true)}} onMouseLeave={() => {setHovered(false)}}>
             <Button onClick={() => onLearnMoreClick(id)}>Learn more...</Button>
             {hovered ?
             <video width="100%" id={`course${id}video`} autoPlay muted></video>
