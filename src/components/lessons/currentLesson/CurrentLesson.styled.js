@@ -1,7 +1,10 @@
 import styled from "@emotion/styled";
 
 export const Div = styled.div`
-    //width: 830px;
+    
+    @media screen and (min-width: 1200px) {
+        min-width: 750px;
+    }
 `;
 
 export const Button = styled.button`
@@ -15,4 +18,11 @@ export const Button = styled.button`
     font-size: 20px;
     border: none;
     box-shadow: 2px 3px 5px lightgrey;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 480px) {
+        display: none;
+    }
 `;

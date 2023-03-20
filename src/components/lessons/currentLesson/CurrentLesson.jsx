@@ -50,7 +50,7 @@ export function CurrentLesson ({title, link, number, imgLink, videoTime, getTime
         <video id='video'
         /* src={`https://cors-proxy.fringe.zone/${link}`} */
         poster={`${imgLink}/lesson-${number}.webp`}
-        width="750px"
+        width="100%"
         controls
         
         ></video>

@@ -1,17 +1,22 @@
 import styled from "@emotion/styled";
 
 export const DivLessons = styled.div`
-    display: flex;
-    justify-content: space-between;
+    
     background-color: rgb(20, 150, 144);
     padding: 20px;
     color: white;
     box-shadow: 2px 3px 5px lightsteelblue;
     border: 1px solid lightsteelblue;
     border-radius: 15px;
-    height: 470px;
-    gap: 20px;
+    
+    
     margin-bottom: 30px;
+    @media screen and (min-width: 1200px) {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        height: 470px;
+    }
 `;
 
 export const SpanTitle = styled.span`

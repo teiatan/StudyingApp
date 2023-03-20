@@ -20,12 +20,12 @@ export function CoursesItem ({id, onLearnMoreClick, title, duration, launchDate,
 
     return (
         <Li id={id} onMouseEnter={() => {setHovered(true)}} onMouseLeave={() => {setHovered(false)}}>
-            <Button onClick={() => onLearnMoreClick(id)}>Learn more...</Button>
             {hovered ?
             <video width="100%" id={`course${id}video`} autoPlay muted></video>
             :
             <Img src={previewImageLink + '/cover.webp'} alt={previewImageAlt}></Img>
             }
+            <Button onClick={() => onLearnMoreClick(id)}>Learn more...</Button>
             <h3>{title}</h3>
             <p className='isHidden'>Description: {}</p>
             {containsLockedLessons && <p className='isHidden'>Contains locked lessons</p>}

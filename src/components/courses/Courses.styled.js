@@ -1,9 +1,12 @@
 import styled from '@emotion/styled';
 
 export const Ul = styled.ul`
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    
+    @media screen and (min-width: 1200px) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 
 `;
 
