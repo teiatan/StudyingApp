@@ -6,13 +6,16 @@ export function CoursesItem ({id, onLearnMoreClick, title, duration, launchDate,
     lessonsCount, previewImageLink, previewImageAlt, rating, tags, skills, videoLink}) {
 
     const [hovered, setHovered] = useState(false);
-    const video = document.getElementById(`course${id}video`);
-    const link = `https://cors-proxy.fringe.zone/${videoLink}`;
-    if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(link);
-        hls.attachMedia(video);
-    };
+    useEffect(() => {
+        if (Hls.isSupported()) {
+            const video = document.getElementById(`course${id}video`);
+            const link = `https://cors-proxy.fringe.zone/${videoLink}`;
+            const hls = new Hls();
+            hls.loadSource(link);
+            hls.attachMedia(video);
+        };
+    }, [hovered, id, videoLink]);
+    
 
 
     return (
