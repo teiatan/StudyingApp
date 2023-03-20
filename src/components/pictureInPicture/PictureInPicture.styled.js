@@ -5,6 +5,6 @@ position: fixed;
 bottom: 0;
 right: 0;
 width: 300px;
-height: 200px;
-background-color: red;
+height: auto;
+background-color: grey;
 `;

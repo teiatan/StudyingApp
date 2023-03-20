@@ -12,7 +12,6 @@ export class App extends Component {
     oneCourseData: [],
     chosenCousreId: "",
     loader: true,
-    pictureInPictureData: {},
   };
 
   async componentDidMount() {
@@ -84,7 +83,7 @@ export class App extends Component {
       {this.state.currentPage==="courses" && (<Courses courses={this.state.coursesData} onLearnMoreClick={this.learnMoreAboutCourse} loader={this.state.loader}/>)
       }
       {this.state.currentPage==="lessons" && (<Lessons courseData={this.state.oneCourseData} courseId={this.state.chosenCousreId} changePageFunction={this.changePage} pictureInPictureData={this.getPictureInPictureData}/>)}
-      <PictureInPicture data={this.state.pictureInPictureData}/>
+      {this.state.pictureInPictureData && <PictureInPicture data={this.state.pictureInPictureData}/>}
     </>
     );
     
