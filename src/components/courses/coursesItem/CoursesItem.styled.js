@@ -31,4 +31,5 @@ export const Button = styled.button`
     position: absolute;
     top: 260px;
     right: 10px;
+    z-index: 10;
 `;
