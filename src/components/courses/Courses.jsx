@@ -73,6 +73,7 @@ export class Courses extends Component {
                                 rating={course.rating}
                                 tags={course.tags}
                                 skills={course.meta.skills}
+                                videoLink={course.meta.courseVideoPreview.link}
                                 
                             />
                         );

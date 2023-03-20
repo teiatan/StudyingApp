@@ -1,11 +1,28 @@
+import { useState, useEffect } from 'react';
+import Hls from 'hls.js';
 import { Li, Img, Button } from './CoursesItem.styled';
 
 export function CoursesItem ({id, onLearnMoreClick, title, duration, launchDate, containsLockedLessons, 
-    lessonsCount, previewImageLink, previewImageAlt, rating, tags, skills}) {
+    lessonsCount, previewImageLink, previewImageAlt, rating, tags, skills, videoLink}) {
+
+    const [hovered, setHovered] = useState(false);
+    const video = document.getElementById(`course${id}video`);
+    const link = `https://cors-proxy.fringe.zone/${videoLink}`;
+    if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(link);
+        hls.attachMedia(video);
+    };
+
+
     return (
-        <Li id={id}>
+        <Li id={id} onMouseEnter={() => {console.log(videoLink); setHovered(true)}} onMouseLeave={() => {console.log('mouse leave'); setHovered(false)}}>
             <Button onClick={() => onLearnMoreClick(id)}>Learn more...</Button>
+            {hovered ?
+            <video width="100%" id={`course${id}video`} autoPlay muted></video>
+            :
             <Img src={previewImageLink + '/cover.webp'} alt={previewImageAlt}></Img>
+            }
             <h3>{title}</h3>
             <p className='isHidden'>Description: {}</p>
             {containsLockedLessons && <p className='isHidden'>Contains locked lessons</p>}
