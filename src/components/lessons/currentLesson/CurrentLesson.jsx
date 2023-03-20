@@ -2,8 +2,9 @@
 import { Div } from './CurrentLesson.styled';
 import Hls from 'hls.js';
 import { useEffect } from "react";
+import { Button } from './CurrentLesson.styled';
 
-export function CurrentLesson ({title, link, number, imgLink, videoTime, getTime}) {
+export function CurrentLesson ({title, link, number, imgLink, videoTime, getTime, pictureInPictureData}) {
     const video = document.getElementById('video');    
     const videoSrc = `https://cors-proxy.fringe.zone/${link}`;
     let progress = localStorage.getItem('videoTime');
@@ -53,6 +54,7 @@ export function CurrentLesson ({title, link, number, imgLink, videoTime, getTime
         controls
         
         ></video>
+        <Button onClick={()=>pictureInPictureData(videoSrc)}>start picture in picture</Button>
         {}
     </Div>
  )

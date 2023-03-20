@@ -12,6 +12,7 @@ export class App extends Component {
     oneCourseData: [],
     chosenCousreId: "",
     loader: true,
+    pictureInPictureData: {},
   };
 
   async componentDidMount() {
@@ -69,6 +70,11 @@ export class App extends Component {
     this.setState({chosenCousreId: id, currentPage: "lessons"})
   };
 
+  getPictureInPictureData = (link) => {
+    console.log(link);
+    this.setState({pictureInPictureData: link});
+  };
+
   render() {
 
     return(
@@ -77,8 +83,8 @@ export class App extends Component {
       <h1 className="container isHidden">Education for everyone!!!</h1>
       {this.state.currentPage==="courses" && (<Courses courses={this.state.coursesData} onLearnMoreClick={this.learnMoreAboutCourse} loader={this.state.loader}/>)
       }
-      {this.state.currentPage==="lessons" && (<Lessons courseData={this.state.oneCourseData} courseId={this.state.chosenCousreId} changePageFunction={this.changePage}/>)}
-      <PictureInPicture />
+      {this.state.currentPage==="lessons" && (<Lessons courseData={this.state.oneCourseData} courseId={this.state.chosenCousreId} changePageFunction={this.changePage} pictureInPictureData={this.getPictureInPictureData}/>)}
+      <PictureInPicture data={this.state.pictureInPictureData}/>
     </>
     );
     

@@ -98,6 +98,7 @@ export class Lessons extends Component {
                         imgLink={this.state.currentLessonPrewievImage}
                         videoTime={this.state.videoTime}
                         getTime={this.getCurrentTimeOfPlayedVideo}
+                        pictureInPictureData={this.props.pictureInPictureData}
                     />
                     <LessonsList lessons={lessons} onClick={this.chooseLessonByClick}/>
                 </DivLessons>
