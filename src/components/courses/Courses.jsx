@@ -63,7 +63,6 @@ export class Courses extends Component {
                                 onLearnMoreClick={this.props.onLearnMoreClick}
                                 id={course.id}
                                 title={course.title}
-                                /* description={} */
                                 containsLockedLessons={course.containsLockedLessons}
                                 duration={course.duration}
                                 launchDate={course.launchDate}

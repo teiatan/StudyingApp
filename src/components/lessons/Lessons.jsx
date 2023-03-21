@@ -71,7 +71,6 @@ export class Lessons extends Component {
             :
             <>
                 <DivCourse>
-                    {/* <p style={{backgroundImage: `${previewImageLink}/cover.webp`, height: "120px"}}></p> */}
                     <ImgCourse src={previewImageLink + '/cover.webp'} alt={previewImageAlt}></ImgCourse>
                     <H2>Course: <SpanTitle>{title}</SpanTitle></H2>
                     <PDescription>{description}</PDescription>

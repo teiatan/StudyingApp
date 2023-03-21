@@ -15,8 +15,6 @@ export function CoursesItem ({id, onLearnMoreClick, title, duration, launchDate,
             hls.attachMedia(video);
         };
     }, [hovered, id, videoLink]);
-    
-
 
     return (
         <Li id={id} onMouseEnter={() => {setHovered(true)}} onMouseLeave={() => {setHovered(false)}}>

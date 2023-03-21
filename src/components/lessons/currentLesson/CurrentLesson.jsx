@@ -48,7 +48,6 @@ export function CurrentLesson ({title, link, number, imgLink, videoTime, getTime
             light={<img src={imgLink} alt='preview' />}
         /> */}
         <video id='video'
-        /* src={`https://cors-proxy.fringe.zone/${link}`} */
         poster={`${imgLink}/lesson-${number}.webp`}
         width="100%"
         controls
