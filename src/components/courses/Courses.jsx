@@ -57,6 +57,8 @@ export class Courses extends Component {
                 {this.props.loader===true && <Loader />}
                 <Ul style={{display: "flex", flexWrap: "wrap"}}>
                     {this.state.shownCourses.map(course => {
+                        let videoLink;
+                        if(course.meta.courseVideoPreview) {videoLink = course.meta.courseVideoPreview.link;};
                         return (
                             <CoursesItem 
                                 key={course.id}
@@ -72,7 +74,7 @@ export class Courses extends Component {
                                 rating={course.rating}
                                 tags={course.tags}
                                 skills={course.meta.skills}
-                                videoLink={course.meta.courseVideoPreview.link}
+                                videoLink={videoLink}
                                 
                             />
                         );
