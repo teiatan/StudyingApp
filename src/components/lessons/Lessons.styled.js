@@ -15,7 +15,7 @@ export const DivLessons = styled.div`
         display: flex;
         justify-content: space-between;
         gap: 20px;
-        height: 470px;
+        height: 500px;
     }
 `;
 

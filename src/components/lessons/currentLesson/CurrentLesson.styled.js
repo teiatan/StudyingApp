@@ -26,3 +26,13 @@ export const Button = styled.button`
         display: none;
     }
 `;
+
+export const DivControls = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    @media screen and (max-width: 480px) {
+        display: none;
+    }
+`;
